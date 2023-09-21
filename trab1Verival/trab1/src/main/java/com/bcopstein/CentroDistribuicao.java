@@ -111,46 +111,69 @@ public class CentroDistribuicao {
     } 
     
     public int[] encomendaCombustivel(int qtdade, TIPOPOSTO tipoPosto) {
-        if (aditivo < qtdade*0.05/2)
+        int[] vetor = new int[3];
+
+        if (qtdade <= 0) {
+            vetor[0] = -7;
+            return vetor;
+        }
 
         if (situacao == SITUACAO.NORMAL)
         {
-            aditivo -= qtdade*0.05;
-            gasolina -= qtdade*0.7;
-            alcool -= qtdade*0.25;
+            if (aditivo >= qtdade*0.05 && gasolina >= qtdade*0.7 && alcool >= qtdade*0.25)
+            {
+                aditivo -= qtdade*0.05;
+                gasolina -= qtdade*0.7;
+                alcool -= qtdade*0.25;
+            }
+            else {
+                vetor[0] = -21;
+                return vetor;
+            }
         }
         else {
             if (tipoPosto == TIPOPOSTO.COMUM)
             {
-                if (situacao == SITUACAO.NORMAL)
-                {
-                    aditivo -= qtdade*0.05;
-                    gasolina -= qtdade*0.7;
-                    alcool -= qtdade*0.25;
-                }
-                else if (situacao == SITUACAO.SOBRAVISO)
+                if (situacao == SITUACAO.SOBRAVISO && aditivo >= qtdade*0.05/2 && gasolina >= qtdade*0.7/2 && alcool >= qtdade*0.25/2)
                 {
                     aditivo -= qtdade*0.05/2;
                     gasolina -= qtdade*0.7/2;
                     alcool -= qtdade*0.25/2;
+                }
+                else if (situacao == SITUACAO.SOBRAVISO)
+                {
+                    vetor[0] = -21;
+                    return vetor;
+                }
+                else {
+                    vetor[0] = -14;
+                    return vetor;
                 }
             }
             else
             {
-                if (situacao == SITUACAO.SOBRAVISO)
+                if (situacao == SITUACAO.SOBRAVISO && aditivo >= qtdade*0.05 && gasolina >= qtdade*0.7 && alcool >= qtdade*0.25)
                 {
                     aditivo -= qtdade*0.05;
                     gasolina -= qtdade*0.7;
                     alcool -= qtdade*0.25;
                 }
-                else
+                else if (situacao == SITUACAO.EMERGENCIA && aditivo >= qtdade*0.05/2 && gasolina >= qtdade*0.7/2 && alcool >= qtdade*0.25/2)
                 {
                     aditivo -= qtdade*0.05/2;
                     gasolina -= qtdade*0.7/2;
                     alcool -= qtdade*0.25/2;
                 }
+                else {
+                    vetor[0] = -21;
+                    return vetor;
+                }
             }
         }
         defineSituacao();
+        vetor[0] = aditivo;
+        vetor[1] = gasolina;
+        vetor[2] = alcool;
+        return vetor;
     } 
 } 
