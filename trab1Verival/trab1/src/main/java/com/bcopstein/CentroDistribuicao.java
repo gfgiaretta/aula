@@ -54,7 +54,7 @@ public class CentroDistribuicao {
     } 
     
     public int recebeAditivo(int qtdade) {
-        if (qtdade <= 0 || qtdade > MAX_ADITIVO)
+        if (qtdade <= 0)
         {
             return -1;
         }
@@ -73,7 +73,7 @@ public class CentroDistribuicao {
     } 
     
     public int recebeGasolina(int qtdade) {
-        if (qtdade <= 0 || qtdade > MAX_GASOLINA)
+        if (qtdade <= 0)
         {
             return -1;
         }
@@ -92,7 +92,7 @@ public class CentroDistribuicao {
     } 
     
     public int recebeAlcool(int qtdade) {
-        if (qtdade <= 0 || qtdade > MAX_ALCOOL)
+        if (qtdade <= 0)
         {
             return -1;
         }
