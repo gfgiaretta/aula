@@ -19,7 +19,9 @@ public class CentroDistribuicaoTest {
     @ParameterizedTest
     @CsvSource({
         "10000, 0, 3000, 0",
-        "10020, -21, 0, 0"
+        "10020, -21, 0, 0",
+        "10005, -21, 0, 0",
+        "50000, -21, 0, 0"
     })
     void testEncomendaPostoComumSituacaoNormal (int qtdade, int aditivo, int gasolina, int alcool) {
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.COMUM);

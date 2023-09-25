@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CentroDistribuicao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trab1</a> &gt; <a href="index.source.html" class="el_package">com.bcopstein</a> &gt; <span class="el_source">CentroDistribuicao.java</span></div><h1>CentroDistribuicao.java</h1><pre class="source lang-java linenums">package com.bcopstein;
+
+public class CentroDistribuicao { 
+<span class="fc" id="L4">    public enum SITUACAO { NORMAL, SOBRAVISO, EMERGENCIA } </span>
+<span class="fc" id="L5">    public enum TIPOPOSTO { COMUM, ESTRATEGICO } </span>
+    
+    public static final int MAX_ADITIVO = 500; 
+    public static final int MAX_ALCOOL = 2500; 
+    public static final int MAX_GASOLINA = 10000;
+
+    private int aditivo;
+    private int gasolina;
+    private int alcool;
+
+    private SITUACAO situacao;
+    
+<span class="fc" id="L17">    public CentroDistribuicao (int tAditivo, int tGasolina, int tAlcool) {</span>
+<span class="fc bfc" id="L18" title="All 12 branches covered.">        if (tAditivo &lt; 0 || tGasolina &lt; 0 || tAlcool &lt; 0 || tAditivo &gt; MAX_ADITIVO || tGasolina &gt; MAX_GASOLINA || tAlcool &gt; MAX_ALCOOL)</span>
+        {
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;parâmetro inválido.&quot;);</span>
+        }
+<span class="fc" id="L22">        aditivo = tAditivo;</span>
+<span class="fc" id="L23">        gasolina = tGasolina;</span>
+<span class="fc" id="L24">        alcool = tAlcool;</span>
+<span class="fc" id="L25">        defineSituacao();</span>
+<span class="fc" id="L26">    } </span>
+    
+    public void defineSituacao() {
+<span class="fc bfc" id="L29" title="All 6 branches covered.">        if (aditivo &lt; MAX_ADITIVO/4 || gasolina &lt; MAX_GASOLINA/4 || alcool &lt; MAX_ALCOOL/4) {</span>
+<span class="fc" id="L30">            situacao = SITUACAO.EMERGENCIA;</span>
+<span class="fc" id="L31">        }</span>
+<span class="fc bfc" id="L32" title="All 6 branches covered.">        else if (aditivo &lt; MAX_ADITIVO/2 || gasolina &lt; MAX_GASOLINA/2 || alcool &lt; MAX_ALCOOL/2) {</span>
+<span class="fc" id="L33">            situacao = SITUACAO.SOBRAVISO;</span>
+<span class="fc" id="L34">        }</span>
+        else {
+<span class="fc" id="L36">            situacao = SITUACAO.NORMAL;</span>
+        }
+<span class="fc" id="L38">    } </span>
+    
+    public SITUACAO getSituacao() {
+<span class="fc" id="L41">        return situacao;</span>
+    } 
+    
+    public int gettGasolina() {
+<span class="fc" id="L45">        return gasolina;</span>
+    } 
+    
+    public int gettAditivo() {
+<span class="fc" id="L49">        return aditivo;</span>
+    } 
+    
+    public int gettAlcool() {
+<span class="fc" id="L53">        return alcool;</span>
+    } 
+    
+    public int recebeAditivo(int qtdade) {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (qtdade &lt;= 0)</span>
+        {
+<span class="fc" id="L59">            return -1;</span>
+        }
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (qtdade + aditivo &gt; MAX_ADITIVO)</span>
+        {
+<span class="fc" id="L64">            qtdade = MAX_ADITIVO - aditivo;</span>
+<span class="fc" id="L65">            aditivo = MAX_ADITIVO;</span>
+<span class="fc" id="L66">            defineSituacao();</span>
+<span class="fc" id="L67">            return qtdade;</span>
+        }
+
+<span class="fc" id="L70">        aditivo =+ qtdade;</span>
+<span class="fc" id="L71">        defineSituacao();</span>
+<span class="fc" id="L72">        return qtdade;</span>
+    } 
+    
+    public int recebeGasolina(int qtdade) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (qtdade &lt;= 0)</span>
+        {
+<span class="fc" id="L78">            return -1;</span>
+        }
+
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (qtdade + gasolina &gt; MAX_GASOLINA)</span>
+        {
+<span class="fc" id="L83">            qtdade = MAX_GASOLINA - gasolina;</span>
+<span class="fc" id="L84">            gasolina = MAX_GASOLINA;</span>
+<span class="fc" id="L85">            defineSituacao();</span>
+<span class="fc" id="L86">            return qtdade;</span>
+        }
+
+<span class="fc" id="L89">        gasolina =+ qtdade;</span>
+<span class="fc" id="L90">        defineSituacao();</span>
+<span class="fc" id="L91">        return qtdade;</span>
+    } 
+    
+    public int recebeAlcool(int qtdade) {
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        if (qtdade &lt;= 0)</span>
+        {
+<span class="fc" id="L97">            return -1;</span>
+        }
+
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        if (qtdade + alcool &gt; MAX_ALCOOL)</span>
+        {
+<span class="fc" id="L102">            qtdade = MAX_ALCOOL - alcool;</span>
+<span class="fc" id="L103">            alcool = MAX_ALCOOL;</span>
+<span class="fc" id="L104">            defineSituacao();</span>
+<span class="fc" id="L105">            return qtdade;</span>
+        }
+
+<span class="fc" id="L108">        alcool =+ qtdade;</span>
+<span class="fc" id="L109">        defineSituacao();</span>
+<span class="fc" id="L110">        return qtdade;</span>
+    } 
+    
+    public int[] encomendaCombustivel(int qtdade, TIPOPOSTO tipoPosto) {
+<span class="fc" id="L114">        int[] vetor = new int[3];</span>
+
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (qtdade &lt;= 0) {</span>
+<span class="fc" id="L117">            vetor[0] = -7;</span>
+<span class="fc" id="L118">            return vetor;</span>
+        }
+
+<span class="fc bfc" id="L121" title="All 2 branches covered.">        if (situacao == SITUACAO.NORMAL)</span>
+        {
+<span class="pc bpc" id="L123" title="2 of 6 branches missed.">            if (aditivo &gt;= qtdade*0.05 &amp;&amp; gasolina &gt;= qtdade*0.7 &amp;&amp; alcool &gt;= qtdade*0.25)</span>
+            {
+<span class="fc" id="L125">                aditivo -= qtdade*0.05;</span>
+<span class="fc" id="L126">                gasolina -= qtdade*0.7;</span>
+<span class="fc" id="L127">                alcool -= qtdade*0.25;</span>
+<span class="fc" id="L128">            }</span>
+            else {
+<span class="fc" id="L130">                vetor[0] = -21;</span>
+<span class="fc" id="L131">                return vetor;</span>
+            }
+        }
+        else {
+<span class="fc bfc" id="L135" title="All 2 branches covered.">            if (tipoPosto == TIPOPOSTO.COMUM)</span>
+            {
+<span class="pc bpc" id="L137" title="2 of 8 branches missed.">                if (situacao == SITUACAO.SOBRAVISO &amp;&amp; aditivo &gt;= qtdade*0.05/2 &amp;&amp; gasolina &gt;= qtdade*0.7/2 &amp;&amp; alcool &gt;= qtdade*0.25/2)</span>
+                {
+<span class="fc" id="L139">                    aditivo -= qtdade*0.05/2;</span>
+<span class="fc" id="L140">                    gasolina -= qtdade*0.7/2;</span>
+<span class="fc" id="L141">                    alcool -= qtdade*0.25/2;</span>
+<span class="fc" id="L142">                }</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">                else if (situacao == SITUACAO.SOBRAVISO)</span>
+                {
+<span class="fc" id="L145">                    vetor[0] = -21;</span>
+<span class="fc" id="L146">                    return vetor;</span>
+                }
+                else {
+<span class="fc" id="L149">                    vetor[0] = -14;</span>
+<span class="fc" id="L150">                    return vetor;</span>
+                }
+            }
+            else
+            {
+<span class="pc bpc" id="L155" title="2 of 8 branches missed.">                if (situacao == SITUACAO.SOBRAVISO &amp;&amp; aditivo &gt;= qtdade*0.05 &amp;&amp; gasolina &gt;= qtdade*0.7 &amp;&amp; alcool &gt;= qtdade*0.25)</span>
+                {
+<span class="fc" id="L157">                    aditivo -= qtdade*0.05;</span>
+<span class="fc" id="L158">                    gasolina -= qtdade*0.7;</span>
+<span class="fc" id="L159">                    alcool -= qtdade*0.25;</span>
+<span class="fc" id="L160">                }</span>
+<span class="pc bpc" id="L161" title="2 of 8 branches missed.">                else if (situacao == SITUACAO.EMERGENCIA &amp;&amp; aditivo &gt;= qtdade*0.05/2 &amp;&amp; gasolina &gt;= qtdade*0.7/2 &amp;&amp; alcool &gt;= qtdade*0.25/2)</span>
+                {
+<span class="fc" id="L163">                    aditivo -= qtdade*0.05/2;</span>
+<span class="fc" id="L164">                    gasolina -= qtdade*0.7/2;</span>
+<span class="fc" id="L165">                    alcool -= qtdade*0.25/2;</span>
+<span class="fc" id="L166">                }</span>
+                else {
+<span class="fc" id="L168">                    vetor[0] = -21;</span>
+<span class="fc" id="L169">                    return vetor;</span>
+                }
+            }
+        }
+<span class="fc" id="L173">        defineSituacao();</span>
+<span class="fc" id="L174">        vetor[0] = aditivo;</span>
+<span class="fc" id="L175">        vetor[1] = gasolina;</span>
+<span class="fc" id="L176">        vetor[2] = alcool;</span>
+<span class="fc" id="L177">        return vetor;</span>
+    } 
+} 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
