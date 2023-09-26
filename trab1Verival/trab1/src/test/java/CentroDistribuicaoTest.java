@@ -18,12 +18,17 @@ public class CentroDistribuicaoTest {
 
     @ParameterizedTest
     @CsvSource({
-        "10000, 0, 3000, 0",
-        "10020, -21, 0, 0",
-        "10005, -21, 0, 0",
-        "50000, -21, 0, 0"
+        "500, 10000, 2500, 10000, 0, 3000, 0",
+        "500, 10000, 2500, 10020, -21, 0, 0",
+        "500, 10000, 2500, 10005, -21, 0, 0",
+        "500, 10000, 2500, 50000, -21, 0, 0",
+        "300, 10000, 2500, 6020, -21, 0, 0",
+        "500, 6000, 2500, 8573, -21, 0, 0",
+        "500, 6000, 2500, 10005, -21, 0, 0",
+        "300, 6000, 2500, 8573, -21, 0, 0"
     })
-    void testEncomendaPostoComumSituacaoNormal (int qtdade, int aditivo, int gasolina, int alcool) {
+    void testEncomendaPostoComumSituacaoNormal (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.COMUM);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
