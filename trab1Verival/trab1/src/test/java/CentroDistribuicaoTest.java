@@ -18,21 +18,32 @@ public class CentroDistribuicaoTest {
 
     @ParameterizedTest
     @CsvSource({
-        "10000, 0, 3000, 0",
-        "10020, -21, 0, 0"
+        "300, 10000, 2500, 6000, 0, 5800, 1000",
+        "500, 6000, 2500, 8571, 71, 0, 357",
+        "500, 10000, 2000, 8000, 100, 4400, 0",
+        "300, 10000, 2500, 6020, -21, 0, 0",
+        "500, 6000, 2500, 8573, -21, 0, 0",
+        "500, 10000, 2500, 10005, -21, 0, 0"
     })
-    void testEncomendaPostoComumSituacaoNormal (int qtdade, int aditivo, int gasolina, int alcool) {
+    void testEncomendaPostoComumSituacaoNormal (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.COMUM);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
     }
 
+
     @ParameterizedTest
     @CsvSource({
-        "10000, 0, 3000, 0",
-        "10020, -21, 0, 0"
+        "300, 10000, 2500, 6000, 0, 5800, 1000",
+        "500, 6000, 2500, 8571, 71, 0, 357",
+        "500, 10000, 2000, 8000, 100, 4400, 0",
+        "300, 10000, 2500, 6020, -21, 0, 0",
+        "500, 6000, 2500, 8573, -21, 0, 0",
+        "500, 10000, 2500, 10005, -21, 0, 0"
     })
-    void testEncomendaPostoEstrategicoSituacaoNormal (int qtdade, int aditivo, int gasolina, int alcool) {
+    void testEncomendaPostoEstrategicoSituacaoNormal (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.ESTRATEGICO);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
@@ -40,11 +51,15 @@ public class CentroDistribuicaoTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5000, 375, 2250, 1875",
-        "11432, -21, 0, 0"
+        "200, 10000, 2500, 8000, 0, 7200, 1500",
+        "500, 3500, 2500, 10000, 250, 0, 1250",
+        "500, 10000, 1200, 9600, 260, 6640, 0",
+        "200, 10000, 2500, 8040, -21, 0, 0",
+        "500, 3500, 2500, 10004, -21, 0, 0",
+        "500, 10000, 1200, 9608, -21, 0, 0"
     })
-    void testEncomendaPostoComumSituacaoSobraviso (int qtdade, int aditivo, int gasolina, int alcool) {
-        c = new CentroDistribuicao(500, 4000, 2500);
+    void testEncomendaPostoComumSituacaoSobraviso (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.COMUM);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
@@ -52,11 +67,15 @@ public class CentroDistribuicaoTest {
 
     @ParameterizedTest
     @CsvSource({
-        "5000, 250, 500, 1250",
-        "5716, -21, 0, 0"
+        "200, 10000, 2500, 4000, 0, 7200, 1500",
+        "500, 3500, 2500, 5000, 250, 0, 1250",
+        "500, 10000, 1200, 4800, 260, 6640, 0",
+        "200, 10000, 2500, 4020, -21, 0, 0",
+        "500, 3500, 2500, 5002, -21, 0, 0",
+        "500, 10000, 1200, 4804, -21, 0, 0"
     })
-    void testEncomendaPostoEstrategicoSituacaoSobraviso (int qtdade, int aditivo, int gasolina, int alcool) {
-        c = new CentroDistribuicao(500, 4000, 2500);
+    void testEncomendaPostoEstrategicoSituacaoSobraviso (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.ESTRATEGICO);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
@@ -64,27 +83,27 @@ public class CentroDistribuicaoTest {
 
     @ParameterizedTest
     @CsvSource({
-        "20, -14, 0, 0",
-        "11432, -14, 0, 0"
+        "100, 10000, 2500, 4000, 0, 8600, 2000",
+        "500, 2100, 2500, 6000, 350, 0, 1750",
+        "500, 10000, 600, 4800, 380, 8320, 0",
+        "100, 10000, 2500, 4040, -21, 0, 0",
+        "500, 2100, 2500, 6003, -21, 0, 0",
+        "500, 10000, 600, 4808, -21, 0, 0"
     })
-    void testEncomendaPostoComumSituacaoEmergencia (int qtdade, int aditivo, int gasolina, int alcool) {
-        c = new CentroDistribuicao(500, 4000, 600);
-        int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.COMUM);
-        int resultadoEsperado[] = {aditivo, gasolina, alcool};
-        Assertions.assertArrayEquals(resultadoEsperado, vet);
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-        "3000, 425, 2950, 225",
-        "4808, -21, 0, 0"
-    })
-    void testEncomendaPostoEstrategcoSituacaoEmergencia (int qtdade, int aditivo, int gasolina, int alcool) {
-        c = new CentroDistribuicao(500, 4000, 600);
+    void testEncomendaPostoEstrategicoSituacaoEmergencia (int sAditivo, int sGasolina, int sAlcool, int qtdade, int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(sAditivo, sGasolina, sAlcool);
         int[] vet = c.encomendaCombustivel(qtdade, TIPOPOSTO.ESTRATEGICO);
         int resultadoEsperado[] = {aditivo, gasolina, alcool};
         Assertions.assertArrayEquals(resultadoEsperado, vet);
     }
+
+    @Test 
+    public void testEncomendaPostoComumSituacaoEmergencia() { 
+        c = new CentroDistribuicao(100, 100, 100);
+        int[] vet = c.encomendaCombustivel(100, TIPOPOSTO.COMUM);
+        int resultadoEsperado[] = {-14, 0, 0};
+        Assertions.assertArrayEquals(resultadoEsperado, vet); 
+    } 
 
     @Test 
     public void testEncomendaInvalida() { 

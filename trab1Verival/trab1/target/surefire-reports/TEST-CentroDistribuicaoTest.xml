@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CentroDistribuicaoTest" time="0.385" tests="34" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CentroDistribuicaoTest" time="0.383" tests="53" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/gitpod/.sdkman/candidates/java/17.0.8.1-tem/lib"/>
-    <property name="sun.java.command" value="/workspace/aula/trab1Verival/trab1/target/surefire/surefirebooter9349256313464485016.jar /workspace/aula/trab1Verival/trab1/target/surefire 2023-09-26T01-16-28_478-jvmRun1 surefire16205125573923889692tmp surefire_06473479243281631606tmp"/>
+    <property name="sun.java.command" value="/workspace/aula/trab1Verival/trab1/target/surefire/surefirebooter17429394803267193695.jar /workspace/aula/trab1Verival/trab1/target/surefire 2023-09-26T05-07-51_143-jvmRun1 surefire16136553819288418079tmp surefire_05337826916028549520tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/workspace/aula/trab1Verival/trab1/target/test-classes:/workspace/aula/trab1Verival/trab1/target/classes:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/workspace/m2-repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/workspace/m2-repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/workspace/m2-repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/workspace/m2-repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-params/5.6.2/junit-jupiter-params-5.6.2.jar:/workspace/m2-repository/org/mockito/mockito-core/3.5.13/mockito-core-3.5.13.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy/1.10.15/byte-buddy-1.10.15.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy-agent/1.10.15/byte-buddy-agent-1.10.15.jar:/workspace/m2-repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,12 +27,12 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/workspace/aula/trab1Verival/trab1/target/surefire/surefirebooter9349256313464485016.jar"/>
+    <property name="surefire.real.class.path" value="/workspace/aula/trab1Verival/trab1/target/surefire/surefirebooter17429394803267193695.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.8.1+1"/>
     <property name="user.name" value="gitpod"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="6.1.44-060144-generic"/>
+    <property name="os.version" value="6.1.54-060154-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -52,38 +52,57 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testGettAditivo" classname="CentroDistribuicaoTest" time="0.078"/>
+  <testcase name="testGettAditivo" classname="CentroDistribuicaoTest" time="0.088"/>
   <testcase name="testRecebeAditivo(int, int)[1]" classname="CentroDistribuicaoTest" time="0.023"/>
   <testcase name="testRecebeAditivo(int, int)[2]" classname="CentroDistribuicaoTest" time="0.002"/>
   <testcase name="testRecebeAditivo(int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.005"/>
-  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.004"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.027"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoNormal(int, int, int, int, int, int, int)[6]" classname="CentroDistribuicaoTest" time="0.002"/>
   <testcase name="testGettGasolina" classname="CentroDistribuicaoTest" time="0.001"/>
   <testcase name="testDefineSituacaoEmergencia" classname="CentroDistribuicaoTest" time="0.003"/>
-  <testcase name="testRecebeGasolina(int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testRecebeGasolina(int, int)[1]" classname="CentroDistribuicaoTest" time="0"/>
   <testcase name="testRecebeGasolina(int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testRecebeGasolina(int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testRecebeGasolina(int, int)[3]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoSobraviso(int, int, int, int, int, int, int)[6]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoSobraviso(int, int, int, int, int, int, int)[6]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoEstrategicoSituacaoEmergencia(int, int, int, int, int, int, int)[6]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[4]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoNormal(int, int, int, int, int, int, int)[6]" classname="CentroDistribuicaoTest" time="0"/>
   <testcase name="testGettAlcool" classname="CentroDistribuicaoTest" time="0"/>
-  <testcase name="testEncomendaPostoEstrategcoSituacaoEmergencia(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="testEncomendaPostoEstrategcoSituacaoEmergencia(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0"/>
   <testcase name="testeBuilderException(int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.004"/>
   <testcase name="testeBuilderException(int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testeBuilderException(int, int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testeBuilderException(int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="testeBuilderException(int, int, int)[3]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testeBuilderException(int, int, int)[4]" classname="CentroDistribuicaoTest" time="0.001"/>
   <testcase name="testeBuilderException(int, int, int)[5]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testeBuilderException(int, int, int)[6]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testeBuilderException(int, int, int)[6]" classname="CentroDistribuicaoTest" time="0"/>
   <testcase name="testEncomendaInvalida" classname="CentroDistribuicaoTest" time="0"/>
   <testcase name="testDefineSituacaoNormal" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testDefineSituacaoSobraviso" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testRecebeAlcool(int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testRecebeAlcool(int, int)[2]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testDefineSituacaoSobraviso" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testRecebeAlcool(int, int)[1]" classname="CentroDistribuicaoTest" time="0"/>
+  <testcase name="testRecebeAlcool(int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
   <testcase name="testRecebeAlcool(int, int)[3]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoComumSituacaoEmergencia(int, int, int, int)[1]" classname="CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="testEncomendaPostoComumSituacaoEmergencia(int, int, int, int)[2]" classname="CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="testEncomendaPostoComumSituacaoEmergencia" classname="CentroDistribuicaoTest" time="0"/>
 </testsuite>
