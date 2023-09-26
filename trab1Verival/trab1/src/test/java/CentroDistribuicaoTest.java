@@ -2,19 +2,13 @@ import com.bcopstein.CentroDistribuicao;
 import com.bcopstein.CentroDistribuicao.SITUACAO;
 import com.bcopstein.CentroDistribuicao.TIPOPOSTO;
 
-import org.junit.jupiter.api.Assertions; 
-import org.junit.jupiter.api.BeforeEach; 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class CentroDistribuicaoTest {
-    private CentroDistribuicao c = null;
-
-    @BeforeEach 
-    void setUp() { 
-        c = new CentroDistribuicao(500, 10000, 2500); 
-    } 
+    private CentroDistribuicao c = null; 
 
     @ParameterizedTest
     @CsvSource({
@@ -112,6 +106,7 @@ public class CentroDistribuicaoTest {
 
     @Test 
     public void testEncomendaInvalida() { 
+        c = new CentroDistribuicao(500, 10000, 2500);
         int[] vet = c.encomendaCombustivel(-1, TIPOPOSTO.COMUM);
         int resultadoEsperado[] = {-7, 0, 0};
         Assertions.assertArrayEquals(resultadoEsperado, vet); 
@@ -132,39 +127,63 @@ public class CentroDistribuicaoTest {
         });
     }
 
-    @Test
-    public void testDefineSituacaoNormal () {
-        c.encomendaCombustivel(1, TIPOPOSTO.COMUM);
+    @ParameterizedTest
+    @CsvSource({
+        "250, 10000, 2500",
+        "500, 5000, 2500",
+        "500, 10000, 1250",
+        "300, 7000, 2000"
+    })
+    void testDefineSituacaoNormal (int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(aditivo, gasolina, alcool);
         c.defineSituacao();
         Assertions.assertEquals(c.getSituacao(), SITUACAO.NORMAL);
     }
 
-    @Test
-    public void testDefineSituacaoSobraviso () {
-        c.encomendaCombustivel(6000, TIPOPOSTO.COMUM);
+    @ParameterizedTest
+    @CsvSource({
+        "249, 10000, 2500",
+        "500, 4999, 2500",
+        "500, 10000, 1249",
+        "125, 10000, 2500",
+        "500, 2500, 2500",
+        "500, 10000, 625",
+        "200, 4000, 1000"
+    })
+    void testDefineSituacaoSobraviso (int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(aditivo, gasolina, alcool);
         c.defineSituacao();
         Assertions.assertEquals(c.getSituacao(), SITUACAO.SOBRAVISO);
     }
 
-    @Test
-    public void testDefineSituacaoEmergencia () {
-        c.encomendaCombustivel(9000, TIPOPOSTO.COMUM);
+    @ParameterizedTest
+    @CsvSource({
+        "124, 10000, 2500",
+        "500, 2499, 2500",
+        "500, 10000, 624",
+        "100, 100, 100"
+    })
+    void testDefineSituacaoEmergencia (int aditivo, int gasolina, int alcool) {
+        c = new CentroDistribuicao(aditivo, gasolina, alcool);
         c.defineSituacao();
         Assertions.assertEquals(c.getSituacao(), SITUACAO.EMERGENCIA);
     }
 
     @Test 
     public void testGettAditivo() { 
+        c = new CentroDistribuicao(500, 10000, 2500); 
         Assertions.assertEquals(c.gettAditivo(), 500);
     }
 
     @Test 
     public void testGettGasolina() { 
+        c = new CentroDistribuicao(500, 10000, 2500); 
         Assertions.assertEquals(c.gettGasolina(), 10000);
     }
 
     @Test 
     public void testGettAlcool() { 
+        c = new CentroDistribuicao(500, 10000, 2500); 
         Assertions.assertEquals(c.gettAlcool(), 2500);
     }
 
