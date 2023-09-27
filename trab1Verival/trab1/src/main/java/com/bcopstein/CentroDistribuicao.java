@@ -1,179 +1,140 @@
 package com.bcopstein;
+public class CentroDistribuicao {
+    public enum SITUACAO { NORMAL, SOBRAVISO, EMERGENCIA }
+    public enum TIPOPOSTO { COMUM, ESTRATEGICO }
 
-public class CentroDistribuicao { 
-    public enum SITUACAO { NORMAL, SOBRAVISO, EMERGENCIA } 
-    public enum TIPOPOSTO { COMUM, ESTRATEGICO } 
-    
-    public static final int MAX_ADITIVO = 500; 
-    public static final int MAX_ALCOOL = 2500; 
+    public static final int MAX_ADITIVO = 500;
+    public static final int MAX_ALCOOL = 2500;
     public static final int MAX_GASOLINA = 10000;
 
-    private int aditivo;
-    private int gasolina;
-    private int alcool;
-
+    private int tAditivo;
+    private int tGasolina;
+    private int tAlcool;
     private SITUACAO situacao;
-    
+
     public CentroDistribuicao (int tAditivo, int tGasolina, int tAlcool) {
-        if (tAditivo < 0 || tGasolina < 0 || tAlcool < 0 || tAditivo > MAX_ADITIVO || tGasolina > MAX_GASOLINA || tAlcool > MAX_ALCOOL)
-        {
-            throw new IllegalArgumentException("parâmetro inválido.");
+        if(tAditivo < 0 || tGasolina < 0 || tAlcool < 0 || tAditivo > MAX_ADITIVO || tGasolina > MAX_GASOLINA || tAlcool > MAX_ALCOOL){
+            throw new IllegalArgumentException("Quantidade inválida.");
         }
-        aditivo = tAditivo;
-        gasolina = tGasolina;
-        alcool = tAlcool;
+
+        recebeAditivo(tAditivo);
+        recebeGasolina(tGasolina);
+        recebeAlcool(tAlcool);
+
         defineSituacao();
-    } 
-    
-    public void defineSituacao() {
-        if (aditivo < MAX_ADITIVO/4 || gasolina < MAX_GASOLINA/4 || alcool < MAX_ALCOOL/4) {
-            situacao = SITUACAO.EMERGENCIA;
+    }
+
+    public void defineSituacao(){
+        if((this.tAditivo < (MAX_ADITIVO * .25))
+                || (this.tGasolina < (MAX_GASOLINA * .25))
+                || (this.tAlcool < (MAX_ALCOOL * .25))){
+            this.situacao = SITUACAO.EMERGENCIA;
+        } else
+        if((this.tAditivo < (MAX_ADITIVO * .5))
+                || (this.tGasolina < (MAX_GASOLINA * .5))
+                || (this.tAlcool < (MAX_ALCOOL * .5))){
+            this.situacao = SITUACAO.SOBRAVISO;
+        } else {
+            this.situacao = SITUACAO.NORMAL;
         }
-        else if (aditivo < MAX_ADITIVO/2 || gasolina < MAX_GASOLINA/2 || alcool < MAX_ALCOOL/2) {
-            situacao = SITUACAO.SOBRAVISO;
-        }
-        else {
-            situacao = SITUACAO.NORMAL;
-        }
-    } 
-    
-    public SITUACAO getSituacao() {
-        return situacao;
-    } 
-    
-    public int gettGasolina() {
-        return gasolina;
-    } 
-    
-    public int gettAditivo() {
-        return aditivo;
-    } 
-    
-    public int gettAlcool() {
-        return alcool;
-    } 
-    
+    }
+
+    public SITUACAO getSituacao(){
+        return this.situacao;
+    }
+
+    public int gettGasolina(){
+        return this.tGasolina;
+    }
+
+    public int gettAditivo(){
+        return this.tAditivo;
+    }
+    public int gettAlcool(){
+        return this.tAlcool;
+    }
+
     public int recebeAditivo(int qtdade) {
-        if (qtdade <= 0)
-        {
+        if(qtdade < 0){
             return -1;
         }
 
-        if (qtdade + aditivo > MAX_ADITIVO)
-        {
-            qtdade = MAX_ADITIVO - aditivo;
-            aditivo = MAX_ADITIVO;
-            defineSituacao();
-            return qtdade;
-        }
+        int possivelArmazenar = MAX_ADITIVO - this.tAditivo;
+        int qtdArmazenada = qtdade > possivelArmazenar ? possivelArmazenar : qtdade;
 
-        aditivo =+ qtdade;
+        this.tAditivo += qtdArmazenada;
+
         defineSituacao();
-        return qtdade;
-    } 
-    
+
+        return qtdArmazenada;
+    }
+
     public int recebeGasolina(int qtdade) {
-        if (qtdade <= 0)
-        {
+        if(qtdade < 0){
             return -1;
         }
 
-        if (qtdade + gasolina > MAX_GASOLINA)
-        {
-            qtdade = MAX_GASOLINA - gasolina;
-            gasolina = MAX_GASOLINA;
-            defineSituacao();
-            return qtdade;
-        }
+        int possivelArmazenar = MAX_GASOLINA - this.tGasolina;
+        int qtdArmazenada = qtdade > possivelArmazenar ? possivelArmazenar : qtdade;
 
-        gasolina =+ qtdade;
+        this.tGasolina += qtdArmazenada;
+
         defineSituacao();
-        return qtdade;
-    } 
-    
+
+        return qtdArmazenada;
+    }
+
     public int recebeAlcool(int qtdade) {
-        if (qtdade <= 0)
-        {
+        if(qtdade < 0){
             return -1;
         }
 
-        if (qtdade + alcool > MAX_ALCOOL)
-        {
-            qtdade = MAX_ALCOOL - alcool;
-            alcool = MAX_ALCOOL;
-            defineSituacao();
-            return qtdade;
-        }
+        int possivelArmazenar = MAX_ALCOOL - this.tAlcool;
+        int qtdArmazenada = qtdade > possivelArmazenar ? possivelArmazenar : qtdade;
 
-        alcool =+ qtdade;
+        this.tAlcool += qtdArmazenada;
+
         defineSituacao();
-        return qtdade;
-    } 
-    
+
+        return qtdArmazenada;
+    }
+
     public int[] encomendaCombustivel(int qtdade, TIPOPOSTO tipoPosto) {
-        int[] vetor = new int[3];
+        int[] result = new int[3];
 
-        if (qtdade <= 0) {
-            vetor[0] = -7;
-            return vetor;
+        if(qtdade < 0){
+            result[0] =-7;
+            return result;
+        } else if(this.situacao == SITUACAO.EMERGENCIA && tipoPosto == TIPOPOSTO.COMUM){
+            result[0] = -14;
+            return result;
         }
 
-        if (situacao == SITUACAO.NORMAL)
-        {
-            if (aditivo >= qtdade*0.05 && gasolina >= qtdade*0.7 && alcool >= qtdade*0.25)
-            {
-                aditivo -= qtdade*0.05;
-                gasolina -= qtdade*0.7;
-                alcool -= qtdade*0.25;
-            }
-            else {
-                vetor[0] = -21;
-                return vetor;
-            }
+        double multSituacao = this.situacao == SITUACAO.NORMAL ? 1 : this.situacao == SITUACAO.SOBRAVISO ? .5 : .25;
+        double multPosto = this.situacao == SITUACAO.NORMAL ? 1 : tipoPosto == TIPOPOSTO.ESTRATEGICO ? 2 : 1;
+
+        int consumoAditivo  = (int) (qtdade * .05 * multPosto * multSituacao);
+        int consumoAlcool   = (int) (qtdade * .25 * multPosto * multSituacao);
+        int consumoGasolina = (int) (qtdade * .70 * multPosto * multSituacao);
+
+        if((consumoAditivo > gettAditivo())
+                || (consumoAlcool   > gettAlcool())
+                || (consumoGasolina > gettGasolina())){
+
+            result[0] = -21;
+
+        } else {
+
+            this.tAditivo -= consumoAditivo;
+            this.tAlcool -= consumoAlcool;
+            this.tGasolina -= consumoGasolina;
+
+            result[0] = this.tAditivo;
+            result[1] = this.tGasolina;
+            result[2] = this.tAlcool;
+
+            defineSituacao();
         }
-        else {
-            if (tipoPosto == TIPOPOSTO.COMUM)
-            {
-                if (situacao == SITUACAO.SOBRAVISO && aditivo >= qtdade*0.05/2 && gasolina >= qtdade*0.7/2 && alcool >= qtdade*0.25/2)
-                {
-                    aditivo -= qtdade*0.05/2;
-                    gasolina -= qtdade*0.7/2;
-                    alcool -= qtdade*0.25/2;
-                }
-                else if (situacao == SITUACAO.SOBRAVISO)
-                {
-                    vetor[0] = -21;
-                    return vetor;
-                }
-                else {
-                    vetor[0] = -14;
-                    return vetor;
-                }
-            }
-            else
-            {
-                if (situacao == SITUACAO.SOBRAVISO && aditivo >= qtdade*0.05 && gasolina >= qtdade*0.7 && alcool >= qtdade*0.25)
-                {
-                    aditivo -= qtdade*0.05;
-                    gasolina -= qtdade*0.7;
-                    alcool -= qtdade*0.25;
-                }
-                else if (situacao == SITUACAO.EMERGENCIA && aditivo >= qtdade*0.05/2 && gasolina >= qtdade*0.7/2 && alcool >= qtdade*0.25/2)
-                {
-                    aditivo -= qtdade*0.05/2;
-                    gasolina -= qtdade*0.7/2;
-                    alcool -= qtdade*0.25/2;
-                }
-                else {
-                    vetor[0] = -21;
-                    return vetor;
-                }
-            }
-        }
-        defineSituacao();
-        vetor[0] = aditivo;
-        vetor[1] = gasolina;
-        vetor[2] = alcool;
-        return vetor;
-    } 
-} 
+        return result;
+    }
+}
