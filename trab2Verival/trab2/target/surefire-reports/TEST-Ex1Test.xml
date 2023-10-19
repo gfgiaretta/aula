@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Ex1Test" time="0.963" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/workspace/aula/trab2Verival/trab2/target/test-classes:/workspace/aula/trab2Verival/trab2/target/classes:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/workspace/m2-repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/workspace/m2-repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/workspace/m2-repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/workspace/m2-repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-params/5.6.2/junit-jupiter-params-5.6.2.jar:/workspace/m2-repository/org/mockito/mockito-core/3.5.13/mockito-core-3.5.13.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy/1.10.15/byte-buddy-1.10.15.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy-agent/1.10.15/byte-buddy-agent-1.10.15.jar:/workspace/m2-repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/gitpod/.sdkman/candidates/java/21-tem/lib"/>
+    <property name="sun.java.command" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter5678167911619409744.jar /workspace/aula/trab2Verival/trab2/target/surefire 2023-10-19T20-38-16_634-jvmRun1 surefire13535549877937442509tmp surefire_017743701637222705451tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/workspace/aula/trab2Verival/trab2/target/test-classes:/workspace/aula/trab2Verival/trab2/target/classes:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/workspace/m2-repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/workspace/m2-repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/workspace/m2-repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/workspace/m2-repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-params/5.6.2/junit-jupiter-params-5.6.2.jar:/workspace/m2-repository/org/mockito/mockito-core/3.5.13/mockito-core-3.5.13.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy/1.10.15/byte-buddy-1.10.15.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy-agent/1.10.15/byte-buddy-agent-1.10.15.jar:/workspace/m2-repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/gitpod"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-09-19"/>
+    <property name="java.home" value="/home/gitpod/.sdkman/candidates/java/21-tem"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/workspace/aula/trab2Verival/trab2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter5678167911619409744.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21+35-LTS"/>
+    <property name="user.name" value="gitpod"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.1.54-060154-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21+35"/>
+    <property name="localRepository" value="/workspace/m2-repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="21"/>
+    <property name="user.dir" value="/workspace/aula/trab2Verival/trab2"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21+35-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testEstatisticaNormal" classname="Ex1Test" time="0.06"/>
+</testsuite>

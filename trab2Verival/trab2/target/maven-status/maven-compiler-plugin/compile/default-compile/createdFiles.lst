@@ -1,0 +1,8 @@
+com/bcopstein/EstatisticaNormal.class
+com/bcopstein/Evento.class
+com/bcopstein/ServicoEstatistica.class
+com/bcopstein/ICalculoEstatistica.class
+com/bcopstein/IEventoRepository.class
+com/bcopstein/PerformanceDTO.class
+com/bcopstein/EstatisticaDesconsidera.class
+com/bcopstein/EstatisticasDTO.class
