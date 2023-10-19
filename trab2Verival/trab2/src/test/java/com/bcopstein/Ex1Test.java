@@ -49,13 +49,13 @@ public class Ex1Test {
 
     @ParameterizedTest
     @CsvSource({
-        "21000, 4920",
-        "5000, 2520"
+        "21000, 0",
+        "5000, 42.42640687119285"
     })
-    public void testEstatisticaNormalDesvioPadrao() {
+    public void testEstatisticaNormalDesvioPadrao(int dist, double med) {
         en = new EstatisticaNormal(rep);
-        EstatisticasDTO edto = en.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getDesvioPadrao(), 0);
+        EstatisticasDTO edto = en.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getDesvioPadrao(), med);
     }
 
     @Test
