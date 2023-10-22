@@ -21,7 +21,11 @@ public class ServicoEstatistica {
                         .todos()
                         .stream()
                         .filter(e->e.getAno() == ano)
+                        .filter(e -> e.getDistancia() == distancia)
                         .collect(Collectors.toList());
+        if (eventos.size() < 2) {
+            throw new IllegalArgumentException("Menos de dois eventos com a distância informada em registro");
+        }
         int indiceMaiorDif = 0;
         double maiorDif = -1.0;
         for(int i=0;i<eventos.size()-1;i++){

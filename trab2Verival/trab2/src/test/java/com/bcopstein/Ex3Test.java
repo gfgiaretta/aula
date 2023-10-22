@@ -2,6 +2,8 @@ package com.bcopstein;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.api.BeforeAll;
 import java.util.Arrays;
 import static org.mockito.Mockito.*;
@@ -23,28 +25,40 @@ public class Ex3Test {
             new Evento(18,"WINTER RUN", 2, 8, 2021, 5000, 0, 42, 30)));      
     }
 
-    @Test
-    public void testIntegracaoServicoEstatisticaEstatisticaNormalMedia() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testIntegracaoServicoEstatisticaEstatisticaNormalMedia(int dist, int med) {
         en = new EstatisticaNormal(rep);
         se = new ServicoEstatistica(rep, en);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMedia(), 4920);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMedia(), med);
     }
 
-    @Test
-    public void testIntegracaoServicoEstatisticaEstatisticaNormalMediana() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testIntegracaoServicoEstatisticaEstatisticaNormalMediana(int dist, int med) {
         en = new EstatisticaNormal(rep);
         se = new ServicoEstatistica(rep, en);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMediana(), 4920);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMediana(), med);
     }
 
-    @Test
-    public void testIntegracaoServicoEstatisticaEstatisticaNormalDesvioPadrao() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 0",
+        "5000, 42.42640687119285"
+    })
+    public void testIntegracaoServicoEstatisticaEstatisticaNormalDesvioPadrao(int dist, double dp) {
         en = new EstatisticaNormal(rep);
         se = new ServicoEstatistica(rep, en);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getDesvioPadrao(), 0);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getDesvioPadrao(), dp);
     }
 }
 

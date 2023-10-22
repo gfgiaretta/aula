@@ -52,30 +52,42 @@ public class Ex1Test {
         "21000, 0",
         "5000, 42.42640687119285"
     })
-    public void testEstatisticaNormalDesvioPadrao(int dist, double med) {
+    public void testEstatisticaNormalDesvioPadrao(int dist, double dp) {
         en = new EstatisticaNormal(rep);
         EstatisticasDTO edto = en.calculaEstatisticas(dist);
-        Assertions.assertEquals(edto.getDesvioPadrao(), med);
+        Assertions.assertEquals(edto.getDesvioPadrao(), dp);
     }
 
-    @Test
-    public void testEstatisticaDesconsideraMedia() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testEstatisticaDesconsideraMedia(int dist, int med) {
         ed = new EstatisticaDesconsidera(rep);
-        EstatisticasDTO edto = ed.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMedia(), 4920);
+        EstatisticasDTO edto = ed.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMedia(), med);
     }
 
-    @Test
-    public void testEstatisticaDesconsideraMediana() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testEstatisticaDesconsideraMediana(int dist, int med) {
         ed = new EstatisticaDesconsidera(rep);
-        EstatisticasDTO edto = ed.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMediana(), 4920);
+        EstatisticasDTO edto = ed.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMediana(), med);
     }
 
-    @Test
-    public void testEstatisticaDesconsideraDesvioPadrao() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 0",
+        "5000, 42.42640687119285"
+    })
+    public void testEstatisticaDesconsideraDesvioPadrao(int dist, double dp) {
         ed = new EstatisticaDesconsidera(rep);
-        EstatisticasDTO edto = ed.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getDesvioPadrao(), 0);
+        EstatisticasDTO edto = ed.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getDesvioPadrao(), dp);
     }
 }

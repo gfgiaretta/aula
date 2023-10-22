@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.bcopstein.Ex2Test" time="0.036" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.bcopstein.Ex2Test" time="0.124" tests="10" errors="0" skipped="0" failures="4">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/gitpod/.sdkman/candidates/java/21-tem/lib"/>
-    <property name="sun.java.command" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter7272359900952920446.jar /workspace/aula/trab2Verival/trab2/target/surefire 2023-10-19T23-43-33_485-jvmRun1 surefire18437575729040120515tmp surefire_03018284705726399233tmp"/>
+    <property name="sun.java.command" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter7235003242686812497.jar /workspace/aula/trab2Verival/trab2/target/surefire 2023-10-22T07-10-52_424-jvmRun1 surefire2262257928489129827tmp surefire_010832972515351755282tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/workspace/aula/trab2Verival/trab2/target/test-classes:/workspace/aula/trab2Verival/trab2/target/classes:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/workspace/m2-repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/workspace/m2-repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/workspace/m2-repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/workspace/m2-repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/workspace/m2-repository/org/junit/jupiter/junit-jupiter-params/5.6.2/junit-jupiter-params-5.6.2.jar:/workspace/m2-repository/org/mockito/mockito-core/3.5.13/mockito-core-3.5.13.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy/1.10.15/byte-buddy-1.10.15.jar:/workspace/m2-repository/net/bytebuddy/byte-buddy-agent/1.10.15/byte-buddy-agent-1.10.15.jar:/workspace/m2-repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter7272359900952920446.jar"/>
+    <property name="surefire.real.class.path" value="/workspace/aula/trab2Verival/trab2/target/surefire/surefirebooter7235003242686812497.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-LTS"/>
     <property name="user.name" value="gitpod"/>
@@ -54,10 +54,30 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testCalculaEstatisticasMediana" classname="com.bcopstein.Ex2Test" time="0.002"/>
-  <testcase name="TestCalculaAumentoPerformanceProva1" classname="com.bcopstein.Ex2Test" time="0.002"/>
-  <testcase name="TestCalculaAumentoPerformanceProva2" classname="com.bcopstein.Ex2Test" time="0"/>
-  <testcase name="TestCalculaAumentoPerformanceReducao" classname="com.bcopstein.Ex2Test" time="0.001"/>
-  <testcase name="testCalculaEstatisticasMedia" classname="com.bcopstein.Ex2Test" time="0.001"/>
-  <testcase name="testCalculaEstatisticasDesvioPadrao" classname="com.bcopstein.Ex2Test" time="0"/>
+  <testcase name="testCalculaEstatisticasMediana(int, int)[1]" classname="com.bcopstein.Ex2Test" time="0.003"/>
+  <testcase name="testCalculaEstatisticasMediana(int, int)[2]" classname="com.bcopstein.Ex2Test" time="0.002"/>
+  <testcase name="TestCalculaAumentoPerformanceException" classname="com.bcopstein.Ex2Test" time="0.006">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceException(Ex2Test.java:89)
+]]></failure>
+  </testcase>
+  <testcase name="TestCalculaAumentoPerformanceProva1" classname="com.bcopstein.Ex2Test" time="0.002">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <NIKE RUN> but was: <POA Day RUN>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva1(Ex2Test.java:69)
+]]></failure>
+  </testcase>
+  <testcase name="TestCalculaAumentoPerformanceProva2" classname="com.bcopstein.Ex2Test" time="0.001">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <SUMMER RUN> but was: <POA Night RUN>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva2(Ex2Test.java:76)
+]]></failure>
+  </testcase>
+  <testcase name="TestCalculaAumentoPerformanceReducao" classname="com.bcopstein.Ex2Test" time="0.062">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <2460.0> but was: <60.0>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceReducao(Ex2Test.java:83)
+]]></failure>
+  </testcase>
+  <testcase name="testCalculaEstatisticasMedia(int, int)[1]" classname="com.bcopstein.Ex2Test" time="0.002"/>
+  <testcase name="testCalculaEstatisticasMedia(int, int)[2]" classname="com.bcopstein.Ex2Test" time="0"/>
+  <testcase name="testCalculaEstatisticasDesvioPadrao(int, double)[1]" classname="com.bcopstein.Ex2Test" time="0.002"/>
+  <testcase name="testCalculaEstatisticasDesvioPadrao(int, double)[2]" classname="com.bcopstein.Ex2Test" time="0.001"/>
 </testsuite>

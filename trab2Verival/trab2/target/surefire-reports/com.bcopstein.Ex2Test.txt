@@ -1,4 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: com.bcopstein.Ex2Test
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in com.bcopstein.Ex2Test
+Tests run: 10, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.124 s <<< FAILURE! - in com.bcopstein.Ex2Test
+com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceException  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceException(Ex2Test.java:89)
+
+com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva1  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <NIKE RUN> but was: <POA Day RUN>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva1(Ex2Test.java:69)
+
+com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva2  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <SUMMER RUN> but was: <POA Night RUN>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceProva2(Ex2Test.java:76)
+
+com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceReducao  Time elapsed: 0.062 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2460.0> but was: <60.0>
+	at com.bcopstein.Ex2Test.TestCalculaAumentoPerformanceReducao(Ex2Test.java:83)
+

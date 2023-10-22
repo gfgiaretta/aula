@@ -1,0 +1,16 @@
+Integrantes:
+
+Gabriel Giaretta
+Renan Silveira
+Henrique Dalpisol
+João Sbroglio
+=================================================================================================
+Respostas das questões:
+
+1. Apenas o mock providenciado da classe IEventoRepository é necessário, ambos para EstatisticaNormal e EstatisticaDesconsidera.
+
+2. É necessário, além do mock de IEventoRepository, um mock de ICalculoEstatistica.
+
+3. Assim como na questão 1, apenas o mock da classe IEventoRepository é necessário, pois EstatisticaNormal implementa ICalculoEstatistica.
+
+4. Igual à questão 4, pois EstatisticaDesconsidera também implementa ICalculoEstatistica.

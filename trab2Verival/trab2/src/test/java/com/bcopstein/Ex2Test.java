@@ -2,6 +2,8 @@ package com.bcopstein;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.api.BeforeAll;
 import java.util.Arrays;
 import static org.mockito.Mockito.*;
@@ -24,47 +26,68 @@ public class Ex2Test {
             
         calc = mock(ICalculoEstatistica.class);
         when(calc.calculaEstatisticas(21000)).thenReturn(new EstatisticasDTO(4920, 4920, 0));
+        when(calc.calculaEstatisticas(5000)).thenReturn(new EstatisticasDTO(2520, 2520, 42.42640687119285));
     }
 
-    @Test
-    public void testCalculaEstatisticasMedia() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testCalculaEstatisticasMedia(int dist, int med) {
         se = new ServicoEstatistica(rep, calc);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMedia(), 4920);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMedia(), med);
     }
 
-    @Test
-    public void testCalculaEstatisticasMediana() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 4920",
+        "5000, 2520"
+    })
+    public void testCalculaEstatisticasMediana(int dist, int med) {
         se = new ServicoEstatistica(rep, calc);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getMediana(), 4920);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getMediana(), med);
     }
 
-    @Test
-    public void testCalculaEstatisticasDesvioPadrao() {
+    @ParameterizedTest
+    @CsvSource({
+        "21000, 0",
+        "5000, 42.42640687119285"
+    })
+    public void testCalculaEstatisticasDesvioPadrao(int dist, double dp) {
         se = new ServicoEstatistica(rep, calc);
-        EstatisticasDTO edto = se.calculaEstatisticas(21000);
-        Assertions.assertEquals(edto.getDesvioPadrao(), 0);
+        EstatisticasDTO edto = se.calculaEstatisticas(dist);
+        Assertions.assertEquals(edto.getDesvioPadrao(), dp);
     }
 
     @Test
     public void TestCalculaAumentoPerformanceProva1() {
         se = new ServicoEstatistica(rep, calc);
-        PerformanceDTO pdto = se.calculaAumentoPerformance(21000,2021);
-        Assertions.assertEquals(pdto.getProva1(), "NIKE RUN");
+        PerformanceDTO pdto = se.calculaAumentoPerformance(5000,2021);
+        Assertions.assertEquals(pdto.getProva1(), "POA Day RUN");
     }
 
     @Test
     public void TestCalculaAumentoPerformanceProva2() {
         se = new ServicoEstatistica(rep, calc);
-        PerformanceDTO pdto = se.calculaAumentoPerformance(21000,2021);
-        Assertions.assertEquals(pdto.getProva2(), "SUMMER RUN");
+        PerformanceDTO pdto = se.calculaAumentoPerformance(5000,2021);
+        Assertions.assertEquals(pdto.getProva2(), "POA Night RUN");
     }
 
     @Test
     public void TestCalculaAumentoPerformanceReducao() {
         se = new ServicoEstatistica(rep, calc);
-        PerformanceDTO pdto = se.calculaAumentoPerformance(21000,2021);
-        Assertions.assertEquals(pdto.getReducao(), 2460);
+        PerformanceDTO pdto = se.calculaAumentoPerformance(5000,2021);
+        Assertions.assertEquals(pdto.getReducao(), 60);
+    }
+
+    @Test
+    public void TestCalculaAumentoPerformanceException() {
+        se = new ServicoEstatistica(rep, calc);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            se.calculaAumentoPerformance(21000,2021);
+        });
     }
 }
